@@ -4,8 +4,10 @@ export async function saveNotes(notes) {
   return localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-function getNotes() {
-  return JSON.parse(localStorage.getItem("notes") || "[]");
+export function getNotes() {
+  const notes = JSON.parse(localStorage.getItem("notes") || "[]");
+  // Sort the notes by date updated
+  return notes.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 export const notes = writable(getNotes());

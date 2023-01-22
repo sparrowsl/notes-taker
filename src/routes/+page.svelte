@@ -3,7 +3,7 @@
   import AddNote from "../lib/components/AddNote.svelte";
   import NotesList from "../lib/components/NotesList.svelte";
   import SearchNotes from "../lib/components/SearchNotes.svelte";
-  import { notes } from "../lib/stores/notes.js";
+  import { getNotes } from "../lib/stores/notes.js";
 </script>
 
 <!-- Header -->
@@ -13,12 +13,12 @@
   <!-- Search for notes -->
   <SearchNotes />
   <small class="text-xs text-gray-400 block text-right my-2">
-    {$notes.length} notes
+    {getNotes().length} notes
   </small>
 </header>
 
 <!-- Display all notes -->
-<NotesList notes={$notes} />
+<NotesList notes={getNotes()} />
 
 <!-- Show Add button -->
 <AddNote />
