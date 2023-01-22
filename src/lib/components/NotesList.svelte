@@ -18,7 +18,7 @@
   ];
 </script>
 
-<section class="mt-3">
+<section class="mt-5">
   <!-- <div class="flex">
     <h2>Notes</h2>
     <p>{notes.length}</p>
