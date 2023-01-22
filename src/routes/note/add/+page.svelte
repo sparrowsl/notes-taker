@@ -1,7 +1,7 @@
 <script>
   import dayjs from "dayjs";
   import { nanoid } from "nanoid";
-  import { notes } from "../../../lib/stores/notes.js";
+  import { notes, saveNotes } from "../../../lib/stores/notes.js";
 
   let title;
   let content;
@@ -13,9 +13,8 @@
       content,
       date: new Date(),
     };
-    console.log(note);
-    $notes = [note, ...$notes];
-    console.log($notes);
+    $notes = [...$notes, note];
+    saveNotes($notes);
   }
 </script>
 
