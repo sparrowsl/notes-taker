@@ -1,14 +1,12 @@
 import { writable } from "svelte/store";
-import { nanoid } from "nanoid";
+// import { nanoid } from "nanoid";
 
 export async function saveNotes(notes) {
   return localStorage.setItem("notes", JSON.stringify(notes));
 }
 
 function getNotes() {
-  const notes = JSON.parse(localStorage.getItem("notes") || "[]");
-  console.log("in store", notes);
-  return notes;
+  return JSON.parse(localStorage.getItem("notes") || "[]");
 }
 
 export const notes = writable(getNotes());

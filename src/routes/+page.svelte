@@ -1,5 +1,6 @@
 <script>
   import "../app.css";
+  import AddNote from "../lib/components/AddNote.svelte";
   import NotesList from "../lib/components/NotesList.svelte";
   import SearchNotes from "../lib/components/SearchNotes.svelte";
   import { notes } from "../lib/stores/notes.js";
@@ -17,4 +18,7 @@
 </header>
 
 <!-- Display all notes -->
-<NotesList />
+<NotesList notes={$notes} />
+
+<!-- Show Add button -->
+<AddNote />
