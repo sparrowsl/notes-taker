@@ -1,12 +1,19 @@
 <script>
-  import dayjs from "dayjs";
   import { page } from "$app/stores";
+  import { goto } from "$app/navigation";
+  import dayjs from "dayjs";
   import { notes, saveNotes } from "../../../lib/stores/notes.js";
 
   const currentNote = $notes.find((note) => note.id === $page.params.id);
 
   let title = currentNote.title;
   let content = currentNote.content;
+
+  function deleteNote() {
+    $notes = $notes.filter((note) => note.id !== $page.params.id);
+    saveNotes($notes); // Save the notes to localStorage
+    goto("/");
+  }
 
   function updateNote() {
     // Update the note title and content
@@ -31,7 +38,11 @@
     <legend class="font-semibold text-xl text-gray-700">Note</legend>
 
     <!-- Delete Note -->
-    <button type="button" class="block text-red-500 ml-auto">
+    <button
+      type="button"
+      on:click={deleteNote}
+      class="block text-red-500 ml-auto"
+    >
       <i class="gg-trash" />
     </button>
     <!-- Update Note -->
