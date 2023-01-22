@@ -1,6 +1,8 @@
 <script>
   import NotesCard from "./NotesCard.svelte";
   import { notes } from "../stores/notes.js";
+
+  // $: $notes = getNotes();
 </script>
 
 <section class="mt-1">
