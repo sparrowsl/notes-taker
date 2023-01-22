@@ -7,13 +7,13 @@
       id: nanoid(),
       title: "Lorem ipsum dolor sit.",
       content: "this is a small note...",
-      date: "4 january 2023",
+      date: new Date(),
     },
     {
       id: nanoid(),
       title: "Lorem ipsum dolor sit amet.",
       content: "this is a small note...",
-      date: "5 january 2023",
+      date: new Date(),
     },
   ];
 </script>
