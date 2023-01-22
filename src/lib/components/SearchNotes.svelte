@@ -3,5 +3,5 @@
   name="search"
   id=""
   placeholder="Search notes"
-  class="border w-full rounded-full text-sm px-3 py-1 outline-none focus:border-gray-500"
+  class="border block w-full rounded-full text-sm px-3 py-1 outline-none focus:border-gray-500"
 />

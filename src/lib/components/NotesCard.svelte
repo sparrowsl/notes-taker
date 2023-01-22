@@ -4,13 +4,17 @@
   export let note;
 </script>
 
-<a href="/note/add">
+<a href="/note/{note.id}">
   <div class="bg-[#F7F7F7] rounded-lg shadow-sm p-3">
     {#if note.title}
       <h3 class="font-semibold mb-1 text-gray-800">{note.title}</h3>
     {/if}
     {#if note.content}
-      <p class="{!note.title ? 'font-semibold' : ''} text-sm text-gray-800">
+      <p
+        class="{!note.title
+          ? 'font-semibold'
+          : ''} text-sm text-gray-800 truncate"
+      >
         {note.content}
       </p>
     {/if}
