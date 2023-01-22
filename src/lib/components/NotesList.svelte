@@ -1,32 +1,19 @@
 <script>
-  import { nanoid } from "nanoid";
   import NotesCard from "./NotesCard.svelte";
-
-  const notes = [
-    {
-      id: nanoid(),
-      title: "Lorem ipsum dolor sit.",
-      content: "this is a small note...",
-      date: new Date(),
-    },
-    {
-      id: nanoid(),
-      title: "Lorem ipsum dolor sit amet.",
-      content: "this is a small note...",
-      date: new Date(),
-    },
-  ];
+  import { notes } from "../stores/notes.js";
 </script>
 
-<section class="mt-5">
+<section class="mt-1">
   <!-- <div class="flex">
     <h2>Notes</h2>
     <p>{notes.length}</p>
   </div> -->
 
   <article class="flex flex-col gap-3">
-    {#each notes as note (note.id)}
+    {#each $notes as note}
       <NotesCard {note} />
+    {:else}
+      <p class="text-gray-500 text-sm">No notes found...</p>
     {/each}
   </article>
 </section>
