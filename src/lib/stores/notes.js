@@ -10,4 +10,7 @@ export function getNotes() {
   return notes.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+export const filtered = writable([]);
+export const searchedTerm = writable("");
+
 export const notes = writable(getNotes());

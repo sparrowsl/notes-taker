@@ -3,7 +3,13 @@
   import AddNote from "../lib/components/AddNote.svelte";
   import NotesList from "../lib/components/NotesList.svelte";
   import SearchNotes from "../lib/components/SearchNotes.svelte";
-  import { getNotes } from "../lib/stores/notes.js";
+  import { getNotes, filtered, searchedTerm } from "../lib/stores/notes.js";
+
+  $: if ($searchedTerm) {
+    $filtered = getNotes().filter((n) => n.title?.includes($searchedTerm));
+  } else {
+    $filtered = getNotes();
+  }
 </script>
 
 <!-- Header -->
@@ -13,12 +19,12 @@
   <!-- Search for notes -->
   <SearchNotes />
   <small class="text-xs text-gray-400 block text-right my-2">
-    {getNotes().length} notes
+    {$filtered.length} notes
   </small>
 </header>
 
 <!-- Display all notes -->
-<NotesList notes={getNotes()} />
+<NotesList notes={$filtered} />
 
 <!-- Show Add button -->
 <AddNote />
