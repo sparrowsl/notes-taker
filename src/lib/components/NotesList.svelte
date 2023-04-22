@@ -1,13 +1,15 @@
 <script>
-  import NotesCard from "./NotesCard.svelte";
+	import NotesCard from "./NotesCard.svelte";
 
-  export let notes;
+	export let notes;
 </script>
 
 <article class="flex flex-col gap-3">
-  {#each notes as note (note.id)}
-    <NotesCard {note} />
-  {:else}
-    <p class="text-gray-500 text-sm">No notes found...</p>
-  {/each}
+	{#key notes}
+		{#each notes as note (note.id)}
+			<NotesCard note="{note}" />
+		{:else}
+			<p class="text-sm text-gray-500">No notes found...</p>
+		{/each}
+	{/key}
 </article>
